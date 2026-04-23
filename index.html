@@ -48,14 +48,64 @@
 
     .hero {
         height: 100vh;
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url('photos/background.jpg') center/cover;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Sliding background */
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 500%;
+        height: 100%;
+        background: 
+            url('photos/background.jpg') center/cover no-repeat,
+            url('photos/log.jpg') center/cover no-repeat,
+            url('photos/gorilla.jpg') center/cover no-repeat,
+            url('photos/lake%20kivu.jpg') center/cover no-repeat,
+            url('photos/nyungwe.jpg') center/cover no-repeat;
+        background-size: 20% 100%;
+        animation: slideBg 25s infinite;
+    }
+
+    /* Dark overlay */
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1;
+    }
+
+    /* Content stays centered */
+    .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
         display: flex;
         justify-content: center;
         align-items: center;
-        text-align: center;
         color: white;
         flex-direction: column;
+        text-align: center;
+    }
+
+    /* Animation */
+    @keyframes slideBg {
+        0%   { transform: translateX(0); }
+        20%  { transform: translateX(0); }
+        25%  { transform: translateX(-20%); }
+        45%  { transform: translateX(-20%); }
+        50%  { transform: translateX(-40%); }
+        70%  { transform: translateX(-40%); }
+        75%  { transform: translateX(-60%); }
+        95%  { transform: translateX(-60%); }
+        100% { transform: translateX(-80%); }
     }
 
     .hero h2 {
@@ -213,6 +263,95 @@
         cursor: pointer;
     }
 
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        header {
+            padding: 10px 20px;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            margin: 5px 10px;
+        }
+
+        .hero h2 {
+            font-size: 35px;
+        }
+
+        .hero p {
+            font-size: 16px;
+        }
+
+        .section {
+            padding: 60px 10px;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .tours {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 300px;
+        }
+
+        form input, form textarea {
+            width: 90%;
+        }
+
+        .chat-box {
+            width: 90%;
+            max-width: 300px;
+            right: 5%;
+        }
+
+        .chat-toggle {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h2 {
+            font-size: 28px;
+        }
+
+        .hero p {
+            font-size: 14px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+        }
+
+        .card {
+            width: 95%;
+        }
+
+        .chat-box {
+            width: 95%;
+            height: 350px;
+        }
+    }
+
 </style>
 </head>
 
@@ -229,9 +368,12 @@
 </header>
 
 <section class="hero">
-    <h2>Explore Rwanda Like Never Before</h2>
-    <p>Adventure • Nature • Culture</p>
-    <button class="btn">Start Your Journey</button>
+    <div class="overlay"></div>
+    <div class="content">
+        <h2>Explore Rwanda Like Never Before</h2>
+        <p>Adventure • Nature • Culture</p>
+        <button class="btn">Start Your Journey</button>
+    </div>
 </section>
 
 <section id="tours" class="section">
@@ -240,7 +382,7 @@
     <div class="tours">
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e">
+            <img src="photos/gorilla.jpg">
             <div class="card-content">
                 <h3>Gorilla Trekking</h3>
                 <p>Meet mountain gorillas in Volcanoes National Park.</p>
@@ -249,7 +391,7 @@
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5">
+            <img src="photos/lake kivu.jpg">
             <div class="card-content">
                 <h3>Lake Kivu Escape</h3>
                 <p>Relax and enjoy Rwanda’s most beautiful lake.</p>
@@ -258,7 +400,7 @@
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+            <img src="photos/nyungwe.jpg">
             <div class="card-content">
                 <h3>Nyungwe Forest</h3>
                 <p>Walk above the forest on the canopy bridge.</p>
