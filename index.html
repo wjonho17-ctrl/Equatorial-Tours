@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Equatorial Tours</title>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 
 <style>
     * {
@@ -17,7 +17,7 @@
 
     body {
         background: #f5f7f6;
-        color: #333;
+        color: #0cd351;
     }
 
     header {
@@ -60,13 +60,15 @@
         left: 0;
         width: 500%;
         height: 100%;
-        background: 
-            url('photos/background.jpg') center/cover no-repeat,
-            url('photos/log.jpg') center/cover no-repeat,
-            url('photos/gorilla.jpg') center/cover no-repeat,
-            url('photos/lake%20kivu.jpg') center/cover no-repeat,
-            url('photos/nyungwe.jpg') center/cover no-repeat;
+        background-image: 
+            url('photos/natural.jpg'),
+            url('photos/tran.jpg'),
+            url('photos/gorilla.jpg'),
+            url('photos/groud.jpg'),
+            url('photos/culture.jpg');
+        background-position: 0% center, 20% center, 40% center, 60% center, 80% center;
         background-size: 20% 100%;
+        background-repeat: no-repeat;
         animation: slideBg 25s infinite;
     }
 
@@ -238,6 +240,32 @@
         flex: 1;
         padding: 10px;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .message {
+        padding: 8px 12px;
+        border-radius: 15px;
+        max-width: 80%;
+        word-wrap: break-word;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .user-message {
+        align-self: flex-end;
+        background: #00c896;
+        color: white;
+        border-bottom-right-radius: 5px;
+    }
+
+    .bot-message {
+        align-self: flex-start;
+        background: #f0f0f0;
+        color: #333;
+        border-bottom-left-radius: 5px;
     }
 
     .chat-input {
@@ -422,10 +450,15 @@
 <section id="contact" class="section">
     <h2>Contact Us</h2>
 
-    <form id="contact-form" onsubmit="sendEmail(event)">
-        <input type="text" name="name" placeholder="Your Name" required><br>
-        <input type="email" name="email" placeholder="Your Email" required><br>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea><br>
+    <form action="https://formsubmit.co/wjonho17@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+        <!-- Optional settings -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="thankyou.html">
+
         <button type="submit" class="btn">Send Message</button>
     </form>
 </section>
@@ -437,22 +470,19 @@
 <!-- Chat Box -->
 <div id="chat-box" class="chat-box">
     <div class="chat-header">
-        Chat with Us
+        AI Assistant
     </div>
     <div class="chat-messages" id="chat-messages">
-        <!-- Messages will appear here -->
+        <div class="message bot-message">Hello! I'm your AI assistant. I can help you learn about our tours and answer questions about Equatorial Tours. What would you like to know?</div>
     </div>
     <div class="chat-input">
-        <input type="text" id="message-input" placeholder="Type your message...">
+        <input type="text" id="message-input" placeholder="Ask me about our tours...">
         <button onclick="sendMessage()">Send</button>
     </div>
 </div>
-<button class="chat-toggle" onclick="toggleChat()">💬</button>
+<button class="chat-toggle" onclick="toggleChat()">🤖</button>
 
 <script>
-    // Initialize EmailJS with your public key
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key
-
     function toggleChat() {
         const chatBox = document.getElementById('chat-box');
         if (chatBox.style.display === 'flex') {
@@ -466,22 +496,88 @@
         const input = document.getElementById('message-input');
         const message = input.value.trim();
         if (message) {
-            openWhatsApp(message);
+            addMessage(message, 'user');
+            const response = getAIResponse(message);
+            setTimeout(() => addMessage(response, 'bot'), 500); // Simulate typing delay
             input.value = '';
         }
     }
 
-    function openWhatsApp(message) {
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappURL = `https://wa.me/250791597276?text=${encodedMessage}`;
-        window.open(whatsappURL, '_blank');
+    function addMessage(text, sender) {
+        const messagesDiv = document.getElementById('chat-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}-message`;
+        messageDiv.textContent = text;
+        messagesDiv.appendChild(messageDiv);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function getAIResponse(message) {
+        const lowerMessage = message.toLowerCase();
+
+        // Booking responses
+        if (lowerMessage.includes('book') || lowerMessage.includes('booking')) {
+            if (lowerMessage.includes('gorilla')) {
+                return "Great! To book the Gorilla Trekking tour, please fill out our contact form or email us directly. The trek costs around $1,500 per person and includes permits, guides, and accommodation.";
+            } else if (lowerMessage.includes('lake kivu') || lowerMessage.includes('kivu')) {
+                return "Wonderful choice! The Lake Kivu Escape starts from $800 per person for a 3-day stay. It includes lakeside accommodation, boat trips, and local cuisine. Contact us for availability!";
+            } else if (lowerMessage.includes('nyungwe') || lowerMessage.includes('forest')) {
+                return "The Nyungwe Forest canopy walk is $600 per person. Experience walking above the rainforest on suspension bridges! We can arrange transportation from Kigali.";
+            } else {
+                return "I'd be happy to help you book a tour! We offer Gorilla Trekking ($1,500), Lake Kivu Escape ($800), and Nyungwe Forest ($600). Which one interests you?";
+            }
+        }
+
+        // Tour information
+        if (lowerMessage.includes('gorilla') || lowerMessage.includes('trekking')) {
+            return "Our Gorilla Trekking tour takes you to Volcanoes National Park to meet mountain gorillas. It's a once-in-a-lifetime experience! The trek lasts 4-8 hours and includes expert guides.";
+        }
+
+        if (lowerMessage.includes('lake kivu') || lowerMessage.includes('kivu')) {
+            return "Lake Kivu is Rwanda's most beautiful lake, perfect for relaxation. Our escape package includes boat cruises, swimming, and stunning sunset views. It's very peaceful!";
+        }
+
+        if (lowerMessage.includes('nyungwe') || lowerMessage.includes('forest')) {
+            return "Nyungwe Forest is home to chimpanzees and colobus monkeys. Walk on the famous canopy bridge 60 meters above the forest floor - it's absolutely breathtaking!";
+        }
+
+        // General questions
+        if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
+            return "Our tour prices: Gorilla Trekking - $1,500, Lake Kivu Escape - $800, Nyungwe Forest - $600. All prices are per person and include most activities. Contact us for custom packages!";
+        }
+
+        if (lowerMessage.includes('rwanda') || lowerMessage.includes('location')) {
+            return "We're based in Rwanda! All our tours are within Rwanda's borders - Volcanoes National Park (north), Lake Kivu (west), and Nyungwe Forest (southwest). We can arrange transportation from Kigali.";
+        }
+
+        if (lowerMessage.includes('duration') || lowerMessage.includes('long')) {
+            return "Tour durations vary: Gorilla Trekking (1-2 days), Lake Kivu Escape (3-5 days), Nyungwe Forest (1-2 days). We can customize the length based on your preferences!";
+        }
+
+        if (lowerMessage.includes('what') && lowerMessage.includes('do')) {
+            return "We specialize in adventure and nature tours in Rwanda. Our main offerings are gorilla trekking, lake relaxation, and forest canopy walks. Each tour connects you with Rwanda's incredible wildlife and landscapes!";
+        }
+
+        if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+            return "Hello! Welcome to Equatorial Tours. I'm here to help you discover the best of Rwanda. Would you like to know about our tours or need help with booking?";
+        }
+
+        if (lowerMessage.includes('thank') || lowerMessage.includes('thanks')) {
+            return "You're welcome! Feel free to ask me anything else about our tours or Rwanda. Have a great day!";
+        }
+
+        // Default response
+        return "That's an interesting question! I'm here to help with information about our tours in Rwanda. I can tell you about gorilla trekking, Lake Kivu, Nyungwe Forest, pricing, or help with booking. What would you like to know?";
     }
 
     document.querySelectorAll('.btn-book').forEach(function(button) {
         button.addEventListener('click', function() {
             const packageName = button.dataset.package || 'Safari Booking';
-            const message = `Hello Equatorial Tours, I want to book the ${packageName} safari. Please contact me.`;
-            openWhatsApp(message);
+            const message = `I want to book the ${packageName} tour. Can you tell me more about it?`;
+            addMessage(message, 'user');
+            const response = getAIResponse(message);
+            setTimeout(() => addMessage(response, 'bot'), 500);
+            toggleChat(); // Open chat if closed
         });
     });
 
@@ -492,16 +588,6 @@
         }
     });
 
-    function sendEmail(event) {
-        event.preventDefault();
-        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', '#contact-form') // Replace with your service and template IDs
-            .then(function() {
-                alert('Email sent successfully!');
-                document.getElementById('contact-form').reset();
-            }, function(error) {
-                alert('Failed to send email: ' + JSON.stringify(error));
-            });
-    }
 </script>
 
 </body>
