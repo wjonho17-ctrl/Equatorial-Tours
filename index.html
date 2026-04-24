@@ -17,7 +17,7 @@
 
     body {
         background: #f5f7f6;
-        color: #0cd351;
+        color: rgb(240, 221, 12)
     }
 
     header {
@@ -182,7 +182,7 @@
     }
 
     footer {
-        background: #0b6e4f;
+        background: #07e94a;
         color: white;
         text-align: center;
         padding: 20px;
@@ -434,6 +434,22 @@
                 <p>Walk above the forest on the canopy bridge.</p>
                 <button class="btn btn-book" data-package="Nyungwe Forest">Book Now</button>
             </div>
+                 <div class="card">
+            <img src="photos/gorilla.jpg">
+            <div class="card-content">
+                <h3>Gorilla Trekking</h3>
+                <p>Meet mountain gorillas in Volcanoes National Park.</p>
+                <button class="btn btn-book" data-package="Gorilla Trekking">Book Now</button>
+            </div>
+        </div>
+
+         <div class="card">
+            <img src="photos/lake kivu.jpg">
+            <div class="card-content">
+                <h3>Lake Kivu Escape</h3>
+                <p>Relax and enjoy Rwanda’s most beautiful lake.</p>
+                <button class="btn btn-book" data-package="Lake Kivu Escape">Book Now</button>
+            </div>
         </div>
 
     </div>
@@ -450,17 +466,88 @@
 <section id="contact" class="section">
     <h2>Contact Us</h2>
 
-    <form action="https://formsubmit.co/wjonho17@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <title>Follow Us</title>
 
-        <!-- Optional settings -->
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="thankyou.html">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        <button type="submit" class="btn">Send Message</button>
-    </form>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.social-section {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.social-section h2 {
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 10px;
+    font-size: 22px;
+    color: white;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+/* Colors */
+.facebook { background: #3b5998; }
+.twitter { background: #1da1f2; }
+.instagram { background: #e1306c; }
+.linkedin { background: #0077b5; }
+.whatsapp { background: #25d366; }
+
+/* Hover */
+.social-icons a:hover {
+    transform: scale(1.15);
+    opacity: 0.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="social-section">
+    <h2>Follow Us</h2>
+
+    <div class="social-icons">
+        <a href="#" class="facebook" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="#" class="twitter" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+
+        <a href="#" class="instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="#" class="linkedin" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+
+        <a href="#" class="whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+
 </section>
 
 <footer>
