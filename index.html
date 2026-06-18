@@ -38,7 +38,10 @@
 
         .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
         .modal-content { background: white; width: 90%; max-width: 450px; max-height: 85vh; border-radius: 15px; display: flex; flex-direction: column; overflow: hidden; }
-        .modal-header { padding: 20px; border-bottom: 1px solid #eee; }
+        .modal-header { padding: 20px; border-bottom: 1px solid #eee; background: #0b6e4f; color: white; }
+        .modal-header h3 { margin: 0; color: white; }
+        #modal-pkg-label { color: #e6f7ef; margin-top:4px; font-size:14px; }
+        .price-tier { display: none; }
         .modal-body { padding: 20px; overflow-y: auto; flex-grow: 1; }
         .modal-body label { display: block; margin-top: 10px; font-weight: bold; }
         .modal-body input, .modal-body select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; }
@@ -84,6 +87,7 @@
         .gallery-control.next { right: 10px; }
         .gallery-item h3 { margin-bottom: 10px; color: #084a34; font-size: 20px; }
         .gallery-item p { color: #546a62; line-height: 1.7; font-size: 14px; }
+        .inline-country { width: 120px; height: auto; vertical-align: middle; border-radius: 10px; margin: 0 10px; }
 
         .about-section { background: linear-gradient(135deg, #f5f7f6 0%, #e8f5e8 100%); padding: 80px 20px; animation: fadeIn 1s ease-out; }
         .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 30px; align-items: center; max-width: 1200px; margin: 0 auto; text-align: left; }
@@ -131,7 +135,7 @@
     <div class="overlay"></div>
     <div class="content">
         <h2>Welcome to Equatorial Tours</h2>
-        <h2>Explore Rwanda Like Never Before</h2>
+        <h2>Explore <img class="inline-country" src="photos/natural.jpg" alt="Rwanda"> Like Never Before</h2>
         <p>Adventure • Nature • Culture</p>
         <button onclick="document.getElementById('tours').scrollIntoView()">Start Your Journey</button>
     </div>
@@ -144,10 +148,9 @@
 
         <div class="card">
             <img src="photos/natural.jpg" alt="Kigali City Tour">
-            <div class="card-content">
+                <div class="card-content">
                 <h3>Kigali Essence – City Highlights</h3>
                 <p>Discover Kigali's markets, art galleries, modern architecture and vibrant culture.</p>
-                <div class="price-tier"><strong>Price:</strong> $100 / person</div>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
                     <li>Expert local guide</li><li>Markets & art galleries</li>
@@ -155,16 +158,15 @@
                     <li>Duration: 1 Day</li>
                 </ul></div>
                 <br><br>
-                <button class="btn btn-book" data-package="Kigali Essence – City Highlights" data-price="$100/person">Book Now</button>
+                <button class="btn btn-book" data-package="Kigali Essence – City Highlights">Book Now</button>
             </div>
         </div>
 
         <div class="card">
             <img src="photos/natural.jpg" alt="Rwanda Remembrance">
-            <div class="card-content">
-                <h3>Rwanda Remembrance – Full Genocide History</h3>
+                <div class="card-content">
+                <h3><img class="inline-country" src="photos/natural.jpg" alt="Rwanda"> Remembrance – Full Genocide History</h3>
                 <p>Kigali Memorial + Murambi and southern sites. A deeply meaningful journey.</p>
-                <div class="price-tier"><strong>Price:</strong> $200 / person</div>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
                     <li>Kigali Genocide Memorial</li><li>Murambi & southern sites</li>
@@ -172,16 +174,15 @@
                     <li>Duration: 2–3 Days</li>
                 </ul></div>
                 <br><br>
-                <button class="btn btn-book" data-package="Rwanda Remembrance – Full Genocide History" data-price="$200/person">Book Now</button>
+                <button class="btn btn-book" data-package="Remembrance – Full Genocide History">Book Now</button>
             </div>
         </div>
 
         <div class="card">
             <img src="photos/gorilla.jpg" alt="Golden Monkey">
-            <div class="card-content">
+                <div class="card-content">
                 <h3>Golden Monkey Encounter</h3>
                 <p>Trek into Virunga bamboo forests for a magical encounter with golden monkeys.</p>
-                <div class="price-tier"><strong>Price:</strong> $380 / person</div>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
                     <li>Golden monkey permit</li><li>Expert ranger guide</li>
@@ -189,16 +190,15 @@
                     <li>Duration: 1–2 Days</li>
                 </ul></div>
                 <br><br>
-                <button class="btn btn-book" data-package="Golden Monkey Encounter" data-price="$380/person">Book Now</button>
+                <button class="btn btn-book" data-package="Golden Monkey Encounter">Book Now</button>
             </div>
         </div>
 
         <div class="card">
             <img src="photos/nyungwe.jpg" alt="Nyungwe Forest">
-            <div class="card-content">
+                <div class="card-content">
                 <h3>Nyungwe Canopy Adventure</h3>
                 <p>Walk 60m above Africa's oldest rainforest on the continent's longest canopy walkway.</p>
-                <div class="price-tier"><strong>Price:</strong> $500 / person</div>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
                     <li>Canopy bridge (Africa's longest)</li><li>Chimpanzee trekking</li>
@@ -206,16 +206,15 @@
                     <li>Duration: 2–3 Days</li>
                 </ul></div>
                 <br><br>
-                <button class="btn btn-book" data-package="Nyungwe Canopy Adventure" data-price="$500/person">Book Now</button>
+                <button class="btn btn-book" data-package="Nyungwe Canopy Adventure">Book Now</button>
             </div>
         </div>
 
         <div class="card">
             <img src="photos/gorilla.jpg" alt="Akagera Safari">
-            <div class="card-content">
+                <div class="card-content">
                 <h3>Akagera Wildlife Safari</h3>
-                <p>Big Five game drives and boat safari on Lake Ihema in Rwanda's eastern savanna.</p>
-                <div class="price-tier"><strong>Price:</strong> $600 / person</div>
+                <p>Big Five game drives and boat safari on Lake Ihema in the eastern savanna.</p>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
                     <li>Big Five game drives</li><li>Boat safari on Lake Ihema</li>
@@ -223,16 +222,15 @@
                     <li>Duration: 2–3 Days</li>
                 </ul></div>
                 <br><br>
-                <button class="btn btn-book" data-package="Akagera Wildlife Safari" data-price="$600/person">Book Now</button>
+                <button class="btn btn-book" data-package="Akagera Wildlife Safari">Book Now</button>
             </div>
         </div>
 
         <div class="card">
             <img src="photos/lake kivu.jpg" alt="Lake Kivu">
-            <div class="card-content">
+                <div class="card-content">
                 <h3>Kivu Shores Escape</h3>
-                <p>Boat trips, resort stays and spectacular sunsets on Rwanda's volcanic lake.</p>
-                <div class="price-tier"><strong>Price:</strong> $750 / person</div>
+                <p>Boat trips, resort stays and spectacular sunsets on the volcanic lake.</p>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
                     <li>Boat trips on Lake Kivu</li><li>Resort accommodation</li>
@@ -240,16 +238,15 @@
                     <li>Duration: 2–3 Days</li>
                 </ul></div>
                 <br><br>
-                <button class="btn btn-book" data-package="Kivu Shores Escape" data-price="$750/person">Book Now</button>
+                <button class="btn btn-book" data-package="Kivu Shores Escape">Book Now</button>
             </div>
         </div>
 
         <div class="card">
             <img src="photos/gorilla.jpg" alt="Gorilla Trekking">
-            <div class="card-content">
+                <div class="card-content">
                 <h3>Dian Fossey Legacy – Gorilla Trek</h3>
-                <p>The ultimate Rwanda experience — face-to-face with mountain gorillas in Volcanoes National Park.</p>
-                <div class="price-tier"><strong>Price:</strong> $3,000 / person</div>
+                <p>The ultimate experience — face-to-face with mountain gorillas in Volcanoes National Park.</p>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
                     <li>Official gorilla permit included</li><li>Full-day guided trek</li>
@@ -257,7 +254,7 @@
                     <li>Duration: 2–4 Days</li>
                 </ul></div>
                 <br><br>
-                <button class="btn btn-book" data-package="Dian Fossey Legacy – Gorilla Trek" data-price="$3,000/person">Book Now</button>
+                <button class="btn btn-book" data-package="Dian Fossey Legacy – Gorilla Trek">Book Now</button>
             </div>
         </div>
 
@@ -265,15 +262,14 @@
 
     <br><br>
     <h2>Combo Packages</h2>
-    <p>Multi-day journeys combining the best of Rwanda.</p>
+    <p>Multi-day journeys combining the best highlights.</p>
     <div class="tours">
 
         <div class="card">
             <img src="photos/gorilla.jpg" alt="Virunga Primate Odyssey">
-            <div class="card-content">
+                <div class="card-content">
                 <h3>Virunga Primate Odyssey</h3>
                 <p>Gorilla + Golden Monkey — two primate adventures in the Virunga volcanoes.</p>
-                <div class="price-tier"><strong>Price:</strong> $3,600 / person</div>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
                     <li>Gorilla trekking (permit included)</li><li>Golden monkey trekking</li>
@@ -281,16 +277,15 @@
                     <li>Duration: 4–5 Days</li>
                 </ul></div>
                 <br><br>
-                <button class="btn btn-book" data-package="Virunga Primate Odyssey (Gorilla + Golden Monkey)" data-price="$3,600/person">Book Now</button>
+                <button class="btn btn-book" data-package="Virunga Primate Odyssey (Gorilla + Golden Monkey)">Book Now</button>
             </div>
         </div>
 
         <div class="card">
             <img src="photos/gorilla.jpg" alt="Rwanda Grand Traverse">
-            <div class="card-content">
-                <h3>Rwanda Grand Traverse</h3>
-                <p>Akagera + Lake Kivu + Nyungwe — cross Rwanda from east to west.</p>
-                <div class="price-tier"><strong>Price:</strong> $3,600 / person</div>
+                <div class="card-content">
+                <h3><img class="inline-country" src="photos/gorilla.jpg" alt="Rwanda"> Grand Traverse</h3>
+                <p>Akagera + Lake Kivu + Nyungwe — cross the country from east to west.</p>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
                     <li>Akagera Big Five safari</li><li>Lake Kivu boat & resort</li>
@@ -298,16 +293,15 @@
                     <li>Duration: 7–8 Days</li>
                 </ul></div>
                 <br><br>
-                <button class="btn btn-book" data-package="Rwanda Grand Traverse (Akagera + Kivu + Nyungwe)" data-price="$3,600/person">Book Now</button>
+                <button class="btn btn-book" data-package="Grand Traverse (Akagera + Kivu + Nyungwe)">Book Now</button>
             </div>
         </div>
 
         <div class="card">
             <img src="photos/gorilla.jpg" alt="Gorillas to Kivu">
-            <div class="card-content">
+                <div class="card-content">
                 <h3>Gorillas to Kivu Escape</h3>
                 <p>Trek with gorillas in Volcanoes then unwind on the shores of Lake Kivu.</p>
-                <div class="price-tier"><strong>Price:</strong> $3,600 / person</div>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
                     <li>Gorilla trekking (permit included)</li><li>Lake Kivu resort stay</li>
@@ -315,16 +309,15 @@
                     <li>Duration: 6 Days</li>
                 </ul></div>
                 <br><br>
-                <button class="btn btn-book" data-package="Gorillas to Kivu Escape" data-price="$3,600/person">Book Now</button>
+                <button class="btn btn-book" data-package="Gorillas to Kivu Escape">Book Now</button>
             </div>
         </div>
 
         <div class="card">
             <img src="photos/natural.jpg" alt="Ultimate Rwanda">
-            <div class="card-content">
+                <div class="card-content">
                 <h3>Land of a Thousand Hills Explorer</h3>
-                <p>The full Rwanda experience — every major highlight across the entire country.</p>
-                <div class="price-tier"><strong>Price:</strong> $5,000 / person</div>
+                <p>The full country experience — every major highlight across the entire country.</p>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
                     <li>Gorillas + golden monkeys</li><li>Akagera Big Five safari</li>
@@ -332,7 +325,7 @@
                     <li>Duration: 9–10 Days</li>
                 </ul></div>
                 <br><br>
-                <button class="btn btn-book" data-package="Land of a Thousand Hills Explorer (Full Rwanda)" data-price="$5,000/person">Book Now</button>
+                <button class="btn btn-book" data-package="Land of a Thousand Hills Explorer (Full Country)">Book Now</button>
             </div>
         </div>
 
@@ -341,8 +334,8 @@
 
 <section id="gallery" class="section gallery-section">
     <div class="gallery-header">
-        <h2>Rwanda Gallery</h2>
-        <p>Explore Rwanda through our signature travel moments — volcano peaks, forest canopies, safari sunsets and lakeside escapes.</p>
+        <h2><img class="inline-country" src="photos/natural.jpg" alt="Rwanda"> Gallery</h2>
+        <p>Explore through our signature travel moments — volcano peaks, forest canopies, safari sunsets and lakeside escapes.</p>
     </div>
     <div class="gallery-slider">
         <button class="gallery-control prev" onclick="moveGallery(-1)">‹</button>
@@ -350,7 +343,7 @@
             <div class="gallery-track">
                 <div class="gallery-item">
                     <img src="photos/gorilla.jpg" alt="Gorilla Trekking">
-                    <div class="card-content"><h3>Gorilla Trekking</h3><p>See Rwanda's iconic mountain gorillas in a stunning volcano forest setting.</p></div>
+                    <div class="card-content"><h3>Gorilla Trekking</h3><p>See iconic mountain gorillas in a stunning volcano forest setting.</p></div>
                 </div>
                 <div class="gallery-item">
                     <img src="photos/lake kivu.jpg" alt="Lake Kivu">
@@ -362,11 +355,11 @@
                 </div>
                 <div class="gallery-item">
                     <img src="photos/gorilla.jpg" alt="Akagera Safari">
-                    <div class="card-content"><h3>Akagera Safari</h3><p>Embark on a Big Five safari in Rwanda's eastern wilderness.</p></div>
+                    <div class="card-content"><h3>Akagera Safari</h3><p>Embark on a Big Five safari in the eastern wilderness.</p></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="photos/natural.jpg" alt="Rwanda Nature">
-                    <div class="card-content"><h3>Rwanda Nature</h3><p>Dramatic landscapes, sunsets, and rich biodiversity.</p></div>
+                    <img src="photos/natural.jpg" alt="Nature">
+                    <div class="card-content"><h3>Nature</h3><p>Dramatic landscapes, sunsets, and rich biodiversity.</p></div>
                 </div>
                 <div class="gallery-item">
                     <img src="photos/log.jpg" alt="Equatorial Tours">
@@ -383,13 +376,13 @@
         <div class="about-brand">
             <img src="photos/log.jpg" alt="Equatorial Tours Logo">
             <h3>Equatorial Tours</h3>
-            <p>Rwanda's trusted travel partner for unforgettable wildlife, nature and cultural journeys.</p>
+            <p><img class="inline-country" src="photos/natural.jpg" alt="Rwanda"> Trusted travel partner for unforgettable wildlife, nature and cultural journeys.</p>
         </div>
         <div class="about-text">
             <h4>About Us</h4>
-            <p><i class="fas fa-users"></i> Equatorial Tours was founded to share Rwanda's unique beauty with the world. Our expert local guides create immersive experiences connecting travelers with nature, wildlife, and authentic culture.</p>
+            <p><i class="fas fa-users"></i> Equatorial Tours was founded to share the country's unique beauty with the world. Our expert local guides create immersive experiences connecting travelers with nature, wildlife, and authentic culture.</p>
             <p><i class="fas fa-tree"></i> We specialize in gorilla trekking, lake escapes, forest canopy walks, safari adventures, city discovery tours and conservation-led travel.</p>
-            <p><i class="fas fa-heart"></i> <strong>Our mission:</strong> To deliver premium Rwandan experiences while supporting local communities and protecting wildlife.</p>
+            <p><i class="fas fa-heart"></i> <strong>Our mission:</strong> To deliver premium experiences while supporting local communities and protecting wildlife.</p>
         </div>
     </div>
 </section>
@@ -399,11 +392,11 @@
     <div class="contact-card">
         <div class="contact-info">
             <h3>Reach Our Team</h3>
-            <p>Ready to plan your Rwanda tour? Contact us on WhatsApp or email — we respond fast.</p>
+            <p>Ready to plan your tour? Contact us on WhatsApp or email — we respond fast.</p>
             <ul>
                 <li><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> +250 791 597 276</li>
                 <li><i class="fas fa-envelope"></i> <strong>Email:</strong> equatorialtours001@gmail.com</li>
-                <li><i class="fas fa-map-marker-alt"></i> <strong>Office:</strong> Kigali, Rwanda</li>
+                <li><i class="fas fa-map-marker-alt"></i> <strong>Office:</strong> Kigali</li>
                 <li><i class="fas fa-clock"></i> <strong>Hours:</strong> Mon–Sat, 8:00 AM – 8:00 PM</li>
             </ul>
         </div>
@@ -416,7 +409,7 @@
 </section>
 
 <footer>
-    <p>© 2026 Equatorial Tours | Rwanda</p>
+    <p>© 2026 Equatorial Tours</p>
     <div class="footer-links">
         <a href="#tours">Tours</a>
         <a href="#about">About</a>
@@ -429,7 +422,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <h3>Book Your Tour</h3>
-            <p id="modal-pkg-label" style="color:#0b6e4f; margin-top:4px; font-size:14px;"></p>
+            <p id="modal-pkg-label"></p>
         </div>
         <div class="modal-body">
             <label>Full Name:</label>
@@ -456,7 +449,7 @@
 
 <!-- CHAT -->
 <div id="chat-box" class="chat-box">
-    <div style="background:#00c896; color:white; padding:10px; text-align:center; font-weight:bold;">🦍 Rwanda Tour Assistant</div>
+    <div style="background:#00c896; color:white; padding:10px; text-align:center; font-weight:bold;">🦍 Tour Assistant</div>
     <div id="chat-messages" class="chat-messages"></div>
     <div class="chat-input">
         <input type="text" id="message-input" placeholder="Ask about tours, prices…">
@@ -471,7 +464,7 @@ let selectedPackage = '', selectedPrice = '', selectedDate = '', chatOpen = fals
 
 // Book buttons
 document.querySelectorAll('.btn-book').forEach(btn => {
-    btn.onclick = () => openModal(btn.dataset.package, btn.dataset.price);
+    btn.onclick = () => openModal(btn.dataset.package);
 });
 
 // Details toggle
@@ -484,9 +477,9 @@ document.querySelectorAll('.toggle-details').forEach(btn => {
 });
 
 // Modal
-function openModal(pkg, price) {
-    selectedPackage = pkg; selectedPrice = price; selectedDate = '';
-    document.getElementById('modal-pkg-label').textContent = pkg + ' — ' + price;
+function openModal(pkg) {
+    selectedPackage = pkg; selectedPrice = ''; selectedDate = '';
+    document.getElementById('modal-pkg-label').textContent = pkg;
     const wrap = document.getElementById('date-list');
     wrap.innerHTML = '';
     const today = new Date();
@@ -512,7 +505,7 @@ function sendToWhatsApp() {
     const notes = document.getElementById('notes').value.trim();
     if (!name) { alert('Please enter your name.'); return; }
     if (!selectedDate) { alert('Please select a date.'); return; }
-    let msg = `Hello! I'd like to book a tour.\n\nTour: ${selectedPackage}\nPrice: ${selectedPrice}\nName: ${name}\nTravellers: ${travellers}\nDate: ${selectedDate}`;
+    let msg = `Hello! I'd like to book a tour.\n\nTour: ${selectedPackage}\nName: ${name}\nTravellers: ${travellers}\nDate: ${selectedDate}`;
     if (notes) msg += `\nNotes: ${notes}`;
     window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
 }
@@ -523,22 +516,22 @@ function toggleChat() {
     document.getElementById('chat-box').style.display = chatOpen ? 'flex' : 'none';
     if (chatOpen && !greeted) {
         greeted = true;
-        addMsg("Muraho! 👋 Ask me about our tours, prices or Rwanda. I'll keep it short!", 'bot');
+        addMsg("Muraho! 👋 Ask me about our tours or booking. I'll keep it short!", 'bot');
     }
 }
 
 const TOURS = {
-    kigali:   { name: "Kigali Essence",           price: "$100",   days: "1 day",    note: "City tour — markets, galleries, culture." },
-    genocide: { name: "Rwanda Remembrance",        price: "$200",   days: "2–3 days", note: "Kigali Memorial + Murambi southern sites." },
-    monkey:   { name: "Golden Monkey Encounter",   price: "$380",   days: "1–2 days", note: "Virunga bamboo forest trek." },
-    nyungwe:  { name: "Nyungwe Canopy Adventure",  price: "$500",   days: "2–3 days", note: "Chimp trek + Africa's longest canopy bridge." },
-    akagera:  { name: "Akagera Wildlife Safari",   price: "$600",   days: "2–3 days", note: "Big Five game drives + boat safari." },
-    kivu:     { name: "Kivu Shores Escape",        price: "$750",   days: "2–3 days", note: "Lake Kivu — resort, boat trips, sunsets." },
-    gorilla:  { name: "Dian Fossey Legacy",        price: "$3,000", days: "2–4 days", note: "Mountain gorilla trek, permit included." },
-    combo_a:  { name: "Virunga Primate Odyssey",   price: "$3,600", days: "4–5 days", note: "Gorilla + Golden Monkey combo." },
-    combo_b:  { name: "Rwanda Grand Traverse",     price: "$3,600", days: "7–8 days", note: "Akagera + Lake Kivu + Nyungwe." },
-    combo_d:  { name: "Gorillas to Kivu Escape",   price: "$3,600", days: "6 days",   note: "Gorilla trek then Lake Kivu relaxation." },
-    combo_c:  { name: "Land of 1000 Hills Explorer", price: "$5,000", days: "9–10 days", note: "Full Rwanda — all major highlights." }
+    kigali:   { name: "Kigali Essence",           days: "1 day",    note: "City tour — markets, galleries, culture." },
+    genocide: { name: "Remembrance – Full Genocide History", days: "2–3 days", note: "Kigali Memorial + Murambi southern sites." },
+    monkey:   { name: "Golden Monkey Encounter",   days: "1–2 days", note: "Virunga bamboo forest trek." },
+    nyungwe:  { name: "Nyungwe Canopy Adventure",  days: "2–3 days", note: "Chimp trek + Africa's longest canopy bridge." },
+    akagera:  { name: "Akagera Wildlife Safari",   days: "2–3 days", note: "Big Five game drives + boat safari." },
+    kivu:     { name: "Kivu Shores Escape",        days: "2–3 days", note: "Lake Kivu — resort, boat trips, sunsets." },
+    gorilla:  { name: "Dian Fossey Legacy – Gorilla Trek", days: "2–4 days", note: "Mountain gorilla trek, permit included." },
+    combo_a:  { name: "Virunga Primate Odyssey",   days: "4–5 days", note: "Gorilla + Golden Monkey combo." },
+    combo_b:  { name: "Grand Traverse",            days: "7–8 days", note: "Akagera + Lake Kivu + Nyungwe." },
+    combo_d:  { name: "Gorillas to Kivu Escape",   days: "6 days",   note: "Gorilla trek then Lake Kivu relaxation." },
+    combo_c:  { name: "Land of 1000 Hills Explorer", days: "9–10 days", note: "Full country — all major highlights." }
 };
 
 function getResponse(msg) {
@@ -546,19 +539,19 @@ function getResponse(msg) {
 
     // Greetings
     if (/^(hi|hello|hey|muraho|good|morning|afternoon|evening)/.test(m))
-        return "Muraho! 👋 Ask me about tours, prices, or booking Rwanda with Equatorial Tours!";
+        return "Muraho! 👋 Ask me about tours, booking, or contact options with Equatorial Tours!";
 
     // All tours / prices list
     if (/all tour|list|what.*offer|packages|show.*tour/.test(m))
-        return "🗺 Our 2026 tours:\n• Kigali City — $100\n• Genocide History — $200\n• Golden Monkey — $380\n• Nyungwe Canopy — $500\n• Akagera Safari — $600\n• Lake Kivu — $750\n• Gorilla Trek — $3,000\n\nCombos from $3,600. Ask about any tour for details!";
+        return "🗺 Our 2026 tours:\n• Kigali City (1 day)\n• Genocide History (2–3 days)\n• Golden Monkey (1–2 days)\n• Nyungwe Canopy (2–3 days)\n• Akagera Safari (2–3 days)\n• Lake Kivu (2–3 days)\n• Gorilla Trek (2–4 days)\n\nCombos available. Ask about any tour for details!";
 
     // Cheapest / budget
     if (/cheap|budget|affordable|lowest|entry/.test(m))
-        return "💰 Most affordable: Kigali City Tour at $100/person (1 day). Great intro to Rwanda!";
+        return "💰 Most affordable: Kigali City Tour (1 day). Great intro to the country!";
 
     // Best / recommend
     if (/best|recommend|popular|top/.test(m))
-        return "⭐ Most popular: Gorilla Trek ($3,000) — once-in-a-lifetime! Budget pick: Kigali City ($100). Best combo: Rwanda Grand Traverse ($3,600, 7–8 days).";
+        return "⭐ Most popular: Gorilla Trek — once-in-a-lifetime! Budget pick: Kigali City. Best combo: Grand Traverse (7–8 days).";
 
     // Individual tour matches
     if (/kigali|city tour/.test(m))
@@ -582,7 +575,7 @@ function getResponse(msg) {
         if (/traverse|grand|b\b/.test(m)) return fmt(TOURS.combo_b);
         if (/kivu.*escape|escape|d\b/.test(m)) return fmt(TOURS.combo_d);
         if (/thousand|explorer|ultimate|c\b/.test(m)) return fmt(TOURS.combo_c);
-        return "📦 Combos:\nA. Virunga Primate Odyssey — $3,600 (4–5 days)\nB. Rwanda Grand Traverse — $3,600 (7–8 days)\nC. 1000 Hills Explorer — $5,000 (9–10 days)\nD. Gorillas to Kivu — $3,600 (6 days)";
+        return "📦 Combos:\nA. Virunga Primate Odyssey (4–5 days)\nB. Grand Traverse (7–8 days)\nC. 1000 Hills Explorer (9–10 days)\nD. Gorillas to Kivu (6 days)";
     }
 
     // Duration
@@ -599,21 +592,21 @@ function getResponse(msg) {
 
     // Rwanda general
     if (/rwanda|country|where|location/.test(m))
-        return "🇷🇼 Rwanda — Land of 1000 Hills. Volcanoes in the north, Akagera in the east, Nyungwe in the southwest, Lake Kivu in the west. We handle all transport from Kigali.";
+        return "🇷🇼 Land of 1000 Hills. Volcanoes in the north, Akagera in the east, Nyungwe in the southwest, Lake Kivu in the west. We handle all transport from Kigali.";
 
     // Price range
     if (/price|cost|how much|fee/.test(m))
-        return "💵 Prices range from $100 (Kigali city tour) to $5,000 (Full country 9–10 days). Which tour interests you?";
+        return "💵 Prices vary by tour and season; please ask about a specific tour and we'll provide current details.";
 
     // Thanks
     if (/thank|thanks/.test(m))
-        return "You're welcome! Happy to help plan your Rwanda adventure. 🦍";
+        return "You're welcome! Happy to help plan your adventure. 🦍";
 
     return "I can help with tour info, prices, duration, or booking. Try: \"gorilla trek price\", \"all tours\", or \"how to book\".";
 }
 
 function fmt(t) {
-    return `🗺 ${t.name}\n💵 ${t.price}/person · ⏱ ${t.days}\n${t.note}\n\nClick "Book Now" or WhatsApp us to reserve!`;
+    return `🗺 ${t.name}\n⏱ ${t.days}\n${t.note}\n\nClick "Book Now" or WhatsApp us to reserve!`;
 }
 
 function sendMessage() {
@@ -659,4 +652,4 @@ function moveGallery(dir) {
 setInterval(() => moveGallery(1), 7000);
 </script>
 </body>
-</html>
+</html> 
