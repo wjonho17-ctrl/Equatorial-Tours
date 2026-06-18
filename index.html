@@ -68,19 +68,25 @@
         .gallery-header { max-width: 900px; margin: 0 auto 40px; text-align: center; }
         .gallery-header h2 { font-size: 36px; color: #084a34; margin-bottom: 10px; }
         .gallery-header p { color: #546a62; line-height: 1.7; }
-        .gallery-slider { position: relative; max-width: 900px; margin: 0 auto; }
-        .gallery-grid { overflow: hidden; position: relative; }
-        .gallery-track { display: flex; gap: 20px; transition: transform 0.5s ease; width: max-content; }
-        .gallery-item { min-width: 100%; max-width: 100%; flex: 0 0 100%; background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,0.18); opacity: 0; animation: fadeIn 0.9s ease-out forwards; }
-        .gallery-item:nth-child(1) { animation-delay: 0.2s; }
-        .gallery-item:nth-child(2) { animation-delay: 0.35s; }
-        .gallery-item:nth-child(3) { animation-delay: 0.5s; }
-        .gallery-item:nth-child(4) { animation-delay: 0.65s; }
-        .gallery-item:nth-child(5) { animation-delay: 0.8s; }
-        .gallery-item:nth-child(6) { animation-delay: 0.95s; }
-        .gallery-item img { width: 100%; height: 360px; object-fit: cover; transition: transform 0.5s ease, filter 0.3s ease; filter: saturate(1.08) contrast(1.05); }
-        .gallery-item:hover img { transform: scale(1.1); filter: saturate(1.12) contrast(1.08) brightness(1.02); }
-        .gallery-item .card-content { padding: 20px; text-align: left; }
+        .gallery-slider { max-width: 1100px; margin: 0 auto; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .gallery-item { background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.12); opacity: 1; }
+        .gallery-item img { width: 100%; height: 260px; object-fit: cover; transition: transform 0.35s ease, filter 0.25s ease; filter: saturate(1.06) contrast(1.03); }
+        .gallery-item:hover img { transform: scale(1.04); filter: saturate(1.1) contrast(1.06); }
+        .gallery-item .card-content { padding: 16px; text-align: left; }
+            /* Booking modal refinements */
+            @keyframes popIn { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+            .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(8,12,10,0.45); backdrop-filter: blur(4px); justify-content: center; align-items: center; }
+            .modal.show { display: flex; }
+            .modal-content { background: linear-gradient(180deg, #ffffff 0%, #f7fffb 100%); width: 92%; max-width: 520px; max-height: 90vh; border-radius: 14px; display: flex; flex-direction: column; overflow: hidden; animation: popIn 260ms ease-out; box-shadow: 0 20px 50px rgba(6,38,26,0.25); }
+            .modal-header { padding: 18px; border-bottom: none; background: linear-gradient(90deg,#0b6e4f,#0bb08a); color: white; }
+            .modal-header h3 { margin: 0; font-size: 20px; }
+            .modal-body { padding: 18px; }
+            .modal-body input, .modal-body select { border: 1px solid #dfecea; background: #fbfffe; }
+            .modal-buttons { padding: 14px; border-top: none; display: flex; justify-content: space-between; gap: 10px; }
+            .btn-ghost { background: #f0f5f3; color: #444; border-radius: 10px; padding: 10px 16px; border: 1px solid #e6efea; }
+            .btn-primary { background: linear-gradient(90deg,#ff7a6b,#ff5c8a); color: white; border-radius: 10px; padding: 10px 16px; border: none; box-shadow: 0 8px 18px rgba(255,92,138,0.18); transition: transform 0.12s ease, box-shadow 0.12s ease; }
+            .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(255,92,138,0.22); }
         .gallery-control { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(8,74,52,0.85); color: white; font-size: 24px; cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 18px rgba(0,0,0,0.2); }
         .gallery-control:hover { background: rgba(8,74,52,1); }
         .gallery-control.prev { left: 10px; }
@@ -135,7 +141,7 @@
     <div class="overlay"></div>
     <div class="content">
         <h2>Welcome to Equatorial Tours</h2>
-        <h2>Explore <img class="inline-country" src="photos/natural.jpg" alt="Rwanda"> Like Never Before</h2>
+        <h2>Explore Like Never Before</h2>
         <p>Adventure • Nature • Culture</p>
         <button onclick="document.getElementById('tours').scrollIntoView()">Start Your Journey</button>
     </div>
@@ -165,7 +171,7 @@
         <div class="card">
             <img src="photos/natural.jpg" alt="Rwanda Remembrance">
                 <div class="card-content">
-                <h3><img class="inline-country" src="photos/natural.jpg" alt="Rwanda"> Remembrance – Full Genocide History</h3>
+                <h3>Remembrance – Full Genocide History</h3>
                 <p>Kigali Memorial + Murambi and southern sites. A deeply meaningful journey.</p>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
@@ -284,7 +290,7 @@
         <div class="card">
             <img src="photos/gorilla.jpg" alt="Rwanda Grand Traverse">
                 <div class="card-content">
-                <h3><img class="inline-country" src="photos/gorilla.jpg" alt="Rwanda"> Grand Traverse</h3>
+                <h3>Grand Traverse</h3>
                 <p>Akagera + Lake Kivu + Nyungwe — cross the country from east to west.</p>
                 <button class="toggle-details">View Details</button>
                 <div class="card-details"><ul>
@@ -334,40 +340,36 @@
 
 <section id="gallery" class="section gallery-section">
     <div class="gallery-header">
-        <h2><img class="inline-country" src="photos/natural.jpg" alt="Rwanda"> Gallery</h2>
+        <h2>Gallery</h2>
         <p>Explore through our signature travel moments — volcano peaks, forest canopies, safari sunsets and lakeside escapes.</p>
     </div>
     <div class="gallery-slider">
-        <button class="gallery-control prev" onclick="moveGallery(-1)">‹</button>
         <div class="gallery-grid">
-            <div class="gallery-track">
-                <div class="gallery-item">
-                    <img src="photos/gorilla.jpg" alt="Gorilla Trekking">
-                    <div class="card-content"><h3>Gorilla Trekking</h3><p>See iconic mountain gorillas in a stunning volcano forest setting.</p></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="photos/lake kivu.jpg" alt="Lake Kivu">
-                    <div class="card-content"><h3>Lake Kivu Escape</h3><p>Relax by the lake with unforgettable beaches, sunsets, and boat cruises.</p></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="photos/nyungwe.jpg" alt="Nyungwe Forest">
-                    <div class="card-content"><h3>Nyungwe Forest</h3><p>Explore the canopy bridges and rainforest trails of Nyungwe National Park.</p></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="photos/gorilla.jpg" alt="Akagera Safari">
-                    <div class="card-content"><h3>Akagera Safari</h3><p>Embark on a Big Five safari in the eastern wilderness.</p></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="photos/natural.jpg" alt="Nature">
-                    <div class="card-content"><h3>Nature</h3><p>Dramatic landscapes, sunsets, and rich biodiversity.</p></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="photos/log.jpg" alt="Equatorial Tours">
-                    <div class="card-content"><h3>Equatorial Tours</h3><p>Travel designed by Rwanda experts with unmatched service.</p></div>
-                </div>
+            <div class="gallery-item">
+                <img src="photos/gorilla.jpg" alt="Gorilla Trekking">
+                <div class="card-content"><h3>Gorilla Trekking</h3><p>See iconic mountain gorillas in a stunning volcano forest setting.</p></div>
+            </div>
+            <div class="gallery-item">
+                <img src="photos/lake kivu.jpg" alt="Lake Kivu">
+                <div class="card-content"><h3>Lake Kivu Escape</h3><p>Relax by the lake with unforgettable beaches, sunsets, and boat cruises.</p></div>
+            </div>
+            <div class="gallery-item">
+                <img src="photos/nyungwe.jpg" alt="Nyungwe Forest">
+                <div class="card-content"><h3>Nyungwe Forest</h3><p>Explore the canopy bridges and rainforest trails of Nyungwe National Park.</p></div>
+            </div>
+            <div class="gallery-item">
+                <img src="photos/gorilla.jpg" alt="Akagera Safari">
+                <div class="card-content"><h3>Akagera Safari</h3><p>Embark on a Big Five safari in the eastern wilderness.</p></div>
+            </div>
+            <div class="gallery-item">
+                <img src="photos/natural.jpg" alt="Nature">
+                <div class="card-content"><h3>Nature</h3><p>Dramatic landscapes, sunsets, and rich biodiversity.</p></div>
+            </div>
+            <div class="gallery-item">
+                <img src="photos/log.jpg" alt="Equatorial Tours">
+                <div class="card-content"><h3>Equatorial Tours</h3><p>Travel designed by local experts with unmatched service.</p></div>
             </div>
         </div>
-        <button class="gallery-control next" onclick="moveGallery(1)">›</button>
     </div>
 </section>
 
@@ -376,7 +378,7 @@
         <div class="about-brand">
             <img src="photos/log.jpg" alt="Equatorial Tours Logo">
             <h3>Equatorial Tours</h3>
-            <p><img class="inline-country" src="photos/natural.jpg" alt="Rwanda"> Trusted travel partner for unforgettable wildlife, nature and cultural journeys.</p>
+            <p>Trusted travel partner for unforgettable wildlife, nature and cultural journeys.</p>
         </div>
         <div class="about-text">
             <h4>About Us</h4>
@@ -441,8 +443,8 @@
             <input type="text" id="notes" placeholder="Any special requests?">
         </div>
         <div class="modal-buttons">
-            <button class="btn" style="background:#666" onclick="closeModal()">Cancel</button>
-            <button class="btn" onclick="sendToWhatsApp()">Send to WhatsApp</button>
+            <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+            <button class="btn btn-primary" onclick="sendToWhatsApp()">Send to WhatsApp</button>
         </div>
     </div>
 </div>
@@ -641,15 +643,7 @@ function addMsg(text, sender) {
 
 document.getElementById('message-input').onkeypress = e => { if (e.key === 'Enter') sendMessage(); };
 
-// Gallery
-const galleryTrack = document.querySelector('.gallery-track');
-const galleryItems = document.querySelectorAll('.gallery-item');
-let galleryIndex = 0;
-function moveGallery(dir) {
-    galleryIndex = (galleryIndex + dir + galleryItems.length) % galleryItems.length;
-    galleryTrack.style.transform = `translateX(-${galleryIndex * 100}%)`;
-}
-setInterval(() => moveGallery(1), 7000);
+// Gallery is now a responsive static grid (no slider/auto-rotate on web).
 </script>
 </body>
 </html> 
